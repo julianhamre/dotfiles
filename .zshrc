@@ -7,6 +7,9 @@ alias dotfiles="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 # Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# Lazygit config location
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # openjdk
 export PATH="/opt/homebrew/opt/openjdk@25/bin:$PATH"
 export JAVA_HOME="/opt/homebrew/opt/openjdk@25/libexec/openjdk.jdk/Contents/Home"
