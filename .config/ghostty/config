@@ -1,0 +1,7 @@
+# ~/.config/ghostty/config
+
+font-family = JetBrainsMono Nerd Font
+font-size = 13
+
+theme = Catppuccin Mocha
+background = 1e1e2e
