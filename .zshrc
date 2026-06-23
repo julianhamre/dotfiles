@@ -2,7 +2,6 @@
 alias gg="git log --all --decorate --oneline --graph"
 alias pi="ssh julianhamre@pi.local"
 alias p3="/usr/local/bin/python3"
-alias dotfiles="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
 # flick
 export FLICK_PATH=/Users/julianhamre/code/flick
