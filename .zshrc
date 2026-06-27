@@ -9,10 +9,14 @@ export FLICK_COMPILER="clang++ -std=c++20"
 export PATH=$FLICK_PATH/main:$PATH
 
 if [[ "$OSTYPE" == linux-gnu* ]]; then
-  
-  # kanata 
+
+  # Vim commands in terminal
+  source ~/.local/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+  ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+
+  # kanata
   export PATH="$HOME/.cargo/bin:$PATH"
-  
+
 fi
 
 # macOS
