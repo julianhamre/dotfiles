@@ -1,1 +1,5 @@
+# System generated files
+.config/systemd/user/default.target.wants/
+
+# OS files
 .DS_store

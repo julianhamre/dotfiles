@@ -8,6 +8,12 @@ export FLICK_PATH=/Users/julianhamre/code/flick
 export FLICK_COMPILER="clang++ -std=c++20"
 export PATH=$FLICK_PATH/main:$PATH
 
+if [[ "$OSTYPE" == linux-gnu* ]]; then
+  
+  # kanata 
+  export PATH="$HOME/.cargo/bin:$PATH"
+  
+fi
 
 # macOS
 if [[ "$OSTYPE" == "darwin"* ]]; then
