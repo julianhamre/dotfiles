@@ -3,4 +3,6 @@
 -- Add any additional options here
 
 vim.g.autoformat = false
--- vim.opt.autowrite = true
+
+-- Python provider
+vim.g.python3_host_prog = vim.fn.expand("~/.virtualenvs/neovim/bin/python")
