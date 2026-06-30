@@ -5,6 +5,8 @@ set -euo pipefail
 # Go to the dotfiles directory
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
+
+# --- Setup helpers ---
 bash ./setup_helpers/setup_molten_nvim.sh
 
 
