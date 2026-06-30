@@ -31,6 +31,7 @@ return {
         -- output
         { "<leader>mo", ":noautocmd MoltenEnterOutput<CR>", desc = "Molten: enter output" },
         { "<leader>mh", ":MoltenHideOutput<CR>", desc = "Molten: hide output" },
+        { "<leader>mI", ":MoltenImagePopup<CR>", desc = "Molten: image popup" },
         { "<leader>md", ":MoltenDelete<CR>", desc = "Molten: delete cell" },
 
         -- navigation
