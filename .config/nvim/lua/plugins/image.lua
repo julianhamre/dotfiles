@@ -11,5 +11,7 @@ return {
         max_width_window_percentage = math.huge,
         window_overlap_clear_enabled = true,
         window_overlap_clear_ft_ignore = { "cmp_menu", "cmp_docs", "" },
+        tmux_show_only_in_active_window = true,
+        editor_only_render_when_focused = true
     }
 }
