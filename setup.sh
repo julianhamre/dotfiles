@@ -8,6 +8,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 
 # --- Setup helpers ---
 bash ./setup_helpers/setup_molten_nvim.sh
+bash ./setup_helpers/setup_debugpy.sh
 
 
 # --- Clone zsh-vi-mode on linux ---
