@@ -1,3 +1,7 @@
+# Default editor
+export EDITOR="nvim"
+export VISUAL="nvim"
+
 # Aliases
 alias gg="git log --all --decorate --oneline --graph"
 alias pi="ssh julianhamre@pi.local"
