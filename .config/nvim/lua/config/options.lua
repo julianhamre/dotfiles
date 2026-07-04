@@ -6,3 +6,6 @@ vim.g.autoformat = false
 
 -- Python provider
 vim.g.python3_host_prog = vim.fn.expand("~/.virtualenvs/neovim/bin/python")
+
+-- LaTeX PDF viewer
+vim.g.vimtex_view_method = "sioyek"
