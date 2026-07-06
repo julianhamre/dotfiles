@@ -24,13 +24,13 @@ return {
             map("<localleader>v", ":<C-u>MoltenEvaluateVisual<CR>", "Molten: eval selection", "v")
             map("<localleader>r", ":MoltenReevaluateCell<CR>", "Molten: re-eval cell")
             map("<localleader>c", function()
-                require("util.cells").run_cell()
+                require("util.molten_cells").run_cell()
             end, "Molten: eval cell")
             map("<localleader>f", function()
-                require("util.cells").run_all_cells()
+                require("util.molten_cells").run_all_cells()
             end, "Molten: eval file")
             map("<localleader>a", function()
-                require("util.cells").run_cells_above_inclusive()
+                require("util.molten_cells").run_cells_above_inclusive()
             end, "Molten: eval cells above (incl. current)")
 
             -- output
