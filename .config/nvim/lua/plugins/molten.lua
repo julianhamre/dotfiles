@@ -18,12 +18,15 @@ return {
         { "<leader>ml", ":MoltenEvaluateLine<CR>", desc = "Molten: eval line" },
         { "<leader>mv", ":<C-u>MoltenEvaluateVisual<CR>", mode = "v", desc = "Molten: eval selection" },
         { "<leader>mr", ":MoltenReevaluateCell<CR>", desc = "Molten: re-eval cell" },
+        { "<leader>mc", function()
+            require("util.cells").run_cell()
+          end, desc = "Molten: eval cell" },
         { "<leader>mf", function()
-            vim.fn.MoltenEvaluateRange(1, vim.fn.line("$"))
+            require("util.cells").run_all_cells()
           end, desc = "Molten: eval file" },
         { "<leader>ma", function()
-            vim.fn.MoltenEvaluateRange(1, vim.fn.line("."))
-          end, desc = "Molten: eval top to cursor" },
+            require("util.cells").run_cells_above_inclusive()
+          end, desc = "Molten: eval cells above (incl. current)" },
 
         -- output
         { "<leader>mo", ":noautocmd MoltenEnterOutput<CR>", desc = "Molten: enter output" },
