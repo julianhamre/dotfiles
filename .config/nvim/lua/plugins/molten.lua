@@ -3,39 +3,58 @@ return {
     version = "^1.0.0", -- use version <2.0.0 to avoid breaking changes
     dependencies = { "3rd/image.nvim" },
     build = ":UpdateRemotePlugins",
+    ft = { "python", "ipynb" },
     init = function()
         vim.g.molten_image_provider = "image.nvim"
         vim.g.molten_output_win_max_height = 20
-        require("which-key").add({ { "<leader>m", group = "molten", icon = "⚗️" } })
     end,
-    keys = {
-        -- session
-        { "<leader>mI", ":MoltenInit<CR>", desc = "Molten: init kernel" },
-        { "<leader>mq", ":MoltenInterruptKernel<CR>", desc = "Molten: interrupt kernel" },
-        { "<leader>mR", ":MoltenRestartKernel<CR>", desc = "Molten: restart kernel" },
+    config = function()
+        local function setup_keymaps(buf)
+            local map = function(lhs, rhs, desc, mode)
+                vim.keymap.set(mode or "n", lhs, rhs, { buffer = buf, desc = desc })
+            end
 
-        -- evaluating (the core loop)
-        { "<leader>ml", ":MoltenEvaluateLine<CR>", desc = "Molten: eval line" },
-        { "<leader>mv", ":<C-u>MoltenEvaluateVisual<CR>", mode = "v", desc = "Molten: eval selection" },
-        { "<leader>mr", ":MoltenReevaluateCell<CR>", desc = "Molten: re-eval cell" },
-        { "<leader>mc", function()
-            require("util.cells").run_cell()
-          end, desc = "Molten: eval cell" },
-        { "<leader>mf", function()
-            require("util.cells").run_all_cells()
-          end, desc = "Molten: eval file" },
-        { "<leader>ma", function()
-            require("util.cells").run_cells_above_inclusive()
-          end, desc = "Molten: eval cells above (incl. current)" },
+            -- session
+            map("<localleader>I", ":MoltenInit<CR>", "Molten: init kernel")
+            map("<localleader>q", ":MoltenInterruptKernel<CR>", "Molten: interrupt kernel")
+            map("<localleader>R", ":MoltenRestartKernel<CR>", "Molten: restart kernel")
 
-        -- output
-        { "<leader>mo", ":noautocmd MoltenEnterOutput<CR>", desc = "Molten: enter output" },
-        { "<leader>mh", ":MoltenHideOutput<CR>", desc = "Molten: hide output" },
-        { "<leader>mi", ":MoltenImagePopup<CR>", desc = "Molten: image popup" },
-        { "<leader>md", ":MoltenDelete<CR>", desc = "Molten: delete cell" },
+            -- evaluating (the core loop)
+            map("<localleader>l", ":MoltenEvaluateLine<CR>", "Molten: eval line")
+            map("<localleader>v", ":<C-u>MoltenEvaluateVisual<CR>", "Molten: eval selection", "v")
+            map("<localleader>r", ":MoltenReevaluateCell<CR>", "Molten: re-eval cell")
+            map("<localleader>c", function()
+                require("util.cells").run_cell()
+            end, "Molten: eval cell")
+            map("<localleader>f", function()
+                require("util.cells").run_all_cells()
+            end, "Molten: eval file")
+            map("<localleader>a", function()
+                require("util.cells").run_cells_above_inclusive()
+            end, "Molten: eval cells above (incl. current)")
 
-        -- navigation
-        { "<leader>mn", ":MoltenNext<CR>", desc = "Molten: next cell" },
-        { "<leader>mp", ":MoltenPrev<CR>", desc = "Molten: prev cell" },
-    },
+            -- output
+            map("<localleader>o", ":noautocmd MoltenEnterOutput<CR>", "Molten: enter output")
+            map("<localleader>h", ":MoltenHideOutput<CR>", "Molten: hide output")
+            map("<localleader>i", ":MoltenImagePopup<CR>", "Molten: image popup")
+            map("<localleader>d", ":MoltenDelete<CR>", "Molten: delete cell")
+
+            -- navigation
+            map("<localleader>n", ":MoltenNext<CR>", "Molten: next cell")
+            map("<localleader>p", ":MoltenPrev<CR>", "Molten: prev cell")
+        end
+
+        vim.api.nvim_create_autocmd("FileType", {
+            pattern = { "python", "ipynb" },
+            callback = function(event)
+                setup_keymaps(event.buf)
+            end,
+        })
+
+        -- apply to the buffer that triggered the plugin load
+        local ft = vim.bo.filetype
+        if ft == "python" or ft == "ipynb" then
+            setup_keymaps(vim.api.nvim_get_current_buf())
+        end
+    end,
 }
