@@ -1,9 +1,11 @@
+FILETYPES = { "python", "ipynb", "molten_output" }
+
 return {
     "benlubas/molten-nvim",
     version = "^1.0.0", -- use version <2.0.0 to avoid breaking changes
     dependencies = { "3rd/image.nvim" },
     build = ":UpdateRemotePlugins",
-    ft = { "python", "ipynb" },
+    ft = FILETYPES;
     init = function()
         vim.g.molten_image_provider = "image.nvim"
         vim.g.molten_output_win_max_height = 50
@@ -16,8 +18,8 @@ return {
 
             -- session
             map("<localleader>I", ":MoltenInit<CR>", "Molten: init kernel")
-            map("<localleader>q", ":MoltenInterruptKernel<CR>", "Molten: interrupt kernel")
-            map("<localleader>R", ":MoltenRestartKernel<CR>", "Molten: restart kernel")
+            map("<localleader>q", ":MoltenInterrupt<CR>", "Molten: interrupt kernel")
+            map("<localleader>R", ":MoltenRestart<CR>", "Molten: restart kernel")
 
             -- evaluating (the core loop)
             map("<localleader>l", ":MoltenEvaluateLine<CR>", "Molten: eval line")
@@ -45,7 +47,7 @@ return {
         end
 
         vim.api.nvim_create_autocmd("FileType", {
-            pattern = { "python", "ipynb" },
+            pattern = FILETYPES;
             callback = function(event)
                 setup_keymaps(event.buf)
             end,
@@ -53,7 +55,7 @@ return {
 
         -- apply to the buffer that triggered the plugin load
         local ft = vim.bo.filetype
-        if ft == "python" or ft == "ipynb" then
+        if vim.tbl_contains(FILETYPES, ft) then
             setup_keymaps(vim.api.nvim_get_current_buf())
         end
     end,
