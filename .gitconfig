@@ -1,5 +1,6 @@
 [include]
   path = ~/.gitconfig-personal
+  path = ~/.config/git/catppuccin.gitconfig
 [init]
 	defaultBranch = main
 [pull]
@@ -30,6 +31,7 @@
 [delta]
     navigate = true
     dark = true
+    features = catppuccin-mocha
 
 [merge]
     conflictstyle = zdiff3
