@@ -6,13 +6,18 @@ set -euo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
 
-# --- Setup helpers ---
+# --- TPM ---
+bash ./setup_helpers/setup_tpm.sh
+
+
+# --- Python venvs ---
 bash ./setup_helpers/setup_molten_nvim.sh
 bash ./setup_helpers/setup_debugpy.sh
 
 
-# --- Clone zsh-vi-mode on linux ---
+# --- Linux-specific setup ---
 if [[ "$(uname)" == "Linux" ]]; then
+  # zsh-vi-mode (not packaged for Linux)
   ZSH_VI_MODE_DIR="${HOME}/.local/share/zsh-vi-mode"
   if [ ! -d "$ZSH_VI_MODE_DIR" ]; then
     git clone --depth 1 -- https://github.com/jeffreytse/zsh-vi-mode.git "$ZSH_VI_MODE_DIR"
