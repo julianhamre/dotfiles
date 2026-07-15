@@ -4,7 +4,12 @@ return {
     opts = {
         processor = "magick_cli",
         backend = "kitty", -- Kitty will provide the best experience, but you need a compatible terminal
-        integrations = {}, -- do whatever you want with image.nvim's integrations
+        integrations = {
+        markdown = {
+            only_render_image_at_cursor = true,
+            only_render_image_at_cursor_mode = "popup", -- or "inline"
+            },
+        },
         max_width = 100, -- tweak to preference
         max_height = 50, -- ^
         max_height_window_percentage = math.huge, -- this is necessary for a good experience
