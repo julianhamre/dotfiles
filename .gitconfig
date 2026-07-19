@@ -1,6 +1,6 @@
 [include]
   path = ~/.gitconfig-personal
-  path = ~/.config/git/catppuccin.gitconfig
+  path = ~/.config/git/tokyonight.gitconfig
 [init]
 	defaultBranch = main
 [pull]
@@ -31,7 +31,7 @@
 [delta]
     navigate = true
     dark = true
-    features = catppuccin-mocha
+    features = tokyonight-moon
 
 [merge]
     conflictstyle = zdiff3
