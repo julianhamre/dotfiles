@@ -1,5 +1,6 @@
 local wezterm = require("wezterm")
 return {
-  font = wezterm.font("JetBrainsMono Nerd Font"),
+	color_scheme = "Catppuccin Mocha",
+	font = wezterm.font("JetBrainsMono Nerd Font"),
 	enable_tab_bar = false,
 }
