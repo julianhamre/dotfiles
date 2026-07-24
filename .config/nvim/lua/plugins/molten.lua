@@ -8,7 +8,7 @@ return {
     ft = FILETYPES;
     init = function()
         vim.g.molten_image_provider = "image.nvim"
-        vim.g.molten_output_win_max_height = 50
+        vim.g.molten_output_virt_lines = true
     end,
     config = function()
         local function setup_keymaps(buf)
