@@ -21,6 +21,8 @@ if [[ "$OSTYPE" == linux-gnu* ]]; then
   # kanata
   export PATH="$HOME/.cargo/bin:$PATH"
 
+  export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
+
 fi
 
 # macOS
