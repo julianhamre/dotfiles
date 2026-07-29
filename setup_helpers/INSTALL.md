@@ -31,6 +31,7 @@
 - [miniconda](https://docs.conda.io/en/latest/miniconda.html)
 - [sioyek](https://sioyek.info) — PDF viewer for vimtex
 - [R](https://www.r-project.org) — also run `install.packages("languageserver")` in R
+- [MATLAB 26a](https://matlab.mathworks.com)  
 - jupytext — `pip install jupytext` or `conda install jupytext`
 
 ## macOS only

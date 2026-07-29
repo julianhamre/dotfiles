@@ -6,7 +6,7 @@ return {
         matlab_ls = {
           settings = {
             MATLAB = {
-              installPath = "/Applications/MATLAB_R2024b.app", -- e.g. "/Applications/MATLAB_R2025a.app" or "/usr/local/MATLAB/R2024b" — leave "" to auto-detect
+              installPath = "/Applications/MATLAB_R2026a.app",
               indexWorkspace = true,
               matlabConnectionTiming = "onStart",
               telemetry = false,

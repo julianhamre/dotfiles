@@ -21,6 +21,7 @@ if [[ "$OSTYPE" == linux-gnu* ]]; then
   # kanata
   export PATH="$HOME/.cargo/bin:$PATH"
 
+  # openjdk
   export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
 
 fi
@@ -38,8 +39,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   export JAVA_HOME="/opt/homebrew/opt/openjdk@25/libexec/openjdk.jdk/Contents/Home"
 
   # matlab
-  export PATH="/Applications/MATLAB_R2024b.app/bin:$PATH"
-  export MATLAB_JAVA="/opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home"
+  export PATH="/Applications/MATLAB_R2026a.app/bin:$PATH"
+  export MATLAB_JAVA="/opt/homebrew/opt/openjdk@25/libexec/openjdk.jdk/Contents/Home"
 
   # >>> conda initialize >>>
   # !! Contents within this block are managed by 'conda init' !!
