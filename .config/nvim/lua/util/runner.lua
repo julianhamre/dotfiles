@@ -23,12 +23,15 @@ local function pane_exists(pane_id)
 end
 
 local function run_in_tmux(cmd)
-  if not pane_exists(runner_pane) then
-    local result = vim.fn.system("tmux split-window -vd -l 10 -PF '#{pane_id}'")
+  local is_new = not pane_exists(runner_pane)
+  if is_new then
+    local result = vim.fn.system("tmux split-window -vd -l 10 -PF '#{pane_id}' zsh -i")
     runner_pane = vim.trim(result)
   end
   local target = vim.fn.shellescape(runner_pane)
-  vim.fn.system("tmux send-keys -t " .. target .. " C-c")
+  if not is_new then
+    vim.fn.system("tmux send-keys -t " .. target .. " C-c")
+  end
   vim.fn.system("tmux send-keys -t " .. target .. " " .. vim.fn.shellescape(cmd) .. " Enter")
 end
 
