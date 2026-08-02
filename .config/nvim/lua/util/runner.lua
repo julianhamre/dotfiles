@@ -4,7 +4,11 @@ local runner_pane = nil
 
 -- Values can be a string prefix or a function(filepath) -> string.
 local runners = {
-  python     = "python3",
+  python = function(filepath)
+    local ok, venv = pcall(require, "venv-selector")
+    local python = (ok and venv.python()) or "python3"
+    return python .. " " .. vim.fn.shellescape(filepath)
+  end,
   sh         = "bash",
   bash       = "bash",
   javascript = "node",
