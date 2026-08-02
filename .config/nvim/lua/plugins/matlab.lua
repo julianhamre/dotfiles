@@ -20,7 +20,9 @@ return {
     'idossha/matlab.nvim',
     ft = 'matlab',
     config = function()
-      require('matlab').setup()
-    end
-  }
+      require('matlab').setup({
+        auto_start = false,
+      })
+    end,
+  },
 }
