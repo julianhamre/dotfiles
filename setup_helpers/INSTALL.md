@@ -17,6 +17,7 @@
 
 ## Java
 - [openjdk](https://openjdk.org) — for lang.java, neotest-java, and MATLAB (macOS)
+- [maven](https://maven.apache.org) — for running Java projects via `<leader>r`
 
 ## Git
 - [git](https://git-scm.com)

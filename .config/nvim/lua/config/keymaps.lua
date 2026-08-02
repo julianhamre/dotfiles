@@ -4,6 +4,8 @@
 
 vim.keymap.set("i", "jk", "<ESC>", { silent = true })
 
+vim.keymap.set("n", "<leader>r", function() require("util.runner").run() end, { desc = "Run file in tmux pane" })
+
 local ss = require("smart-splits")
 vim.keymap.set({ "n", "v", "t" }, "<C-h>", ss.move_cursor_left, { desc = "Move to left pane" })
 vim.keymap.set({ "n", "v", "t" }, "<C-j>", ss.move_cursor_down, { desc = "Move to lower pane" })
