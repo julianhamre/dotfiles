@@ -25,6 +25,7 @@
 - [git-delta](https://github.com/dandavison/delta)
 - [git-lfs](https://git-lfs.com)
 - [lazygit](https://github.com/jesseduffield/lazygit)
+- [nbdime](https://github.com/jupyter/nbdime) — for jupyter notebook diffs 
 
 ## Dotfile management
 - [stow](https://www.gnu.org/software/stow)
