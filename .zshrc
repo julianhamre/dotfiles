@@ -62,5 +62,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 fi
 
+
+# zoxide
+eval "$(zoxide init zsh)"
+
 # Starship
 eval "$(starship init zsh)"

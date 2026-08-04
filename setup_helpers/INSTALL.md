@@ -2,6 +2,7 @@
 
 ## Shell
 - [starship](https://starship.rs)
+- [zoxide](https://github.com/ajeetdsouza/zoxide)
 
 ## Terminal
 - [ghostty](https://ghostty.org)
