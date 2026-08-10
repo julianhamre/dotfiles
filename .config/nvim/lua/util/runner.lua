@@ -29,7 +29,7 @@ end
 local function run_in_tmux(cmd)
   local is_new = not pane_exists(runner_pane)
   if is_new then
-    local result = vim.fn.system("tmux split-window -vd -l 10 -PF '#{pane_id}' zsh -i")
+    local result = vim.fn.system("tmux split-window -vd -l 15 -PF '#{pane_id}' zsh -i")
     runner_pane = vim.trim(result)
   end
   local target = vim.fn.shellescape(runner_pane)
