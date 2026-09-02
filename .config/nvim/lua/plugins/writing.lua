@@ -9,6 +9,7 @@ return {
     opts = {
       servers = {
         ltex_plus = {
+          enabled = true,
           filetypes = { "markdown", "text", "tex", "plaintex", "bib", "gitcommit", "quarto", "rmd" },
           on_attach = function(client, _)
             require("ltex_extra").setup({
@@ -26,6 +27,7 @@ return {
           },
         },
         harper_ls = {
+          enabled = false,
           filetypes = {
             "python", "r", "lua", "rust", "c", "cpp",
             "java", "javascript", "typescript", "go", "sh",
