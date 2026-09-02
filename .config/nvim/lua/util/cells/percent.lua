@@ -43,9 +43,6 @@ local function separators_up_to(end_line)
       table.insert(seps, i)
     end
   end
-  if #seps == 0 then
-    return { { 1, end_line } }
-  end
   return seps
 end
 
@@ -68,8 +65,17 @@ end
 
 function M.code_cells_up_to(end_line)
   local seps = separators_up_to(end_line)
-  local cells = cells(seps, end_line)
-  return cells
+  if #seps == 0 then
+    return { { 1, end_line } }
+  end
+  local all_cells = cells(seps, end_line)
+  local code_cells = {}
+  for _, cell in ipairs(all_cells) do
+    if not is_markdown_cell(cell[1]) then
+      table.insert(code_cells, cell)
+    end
+  end
+  return code_cells
 end
 
 return M

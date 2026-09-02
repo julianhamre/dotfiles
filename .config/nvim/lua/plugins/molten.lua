@@ -1,4 +1,4 @@
-FILETYPES = { "python", "ipynb", "molten_output", "markdown" }
+local FILETYPES = { "python", "ipynb", "molten_output", "markdown" }
 
 return {
     "benlubas/molten-nvim",
