@@ -5,3 +5,5 @@ font-size = 13
 
 theme = TokyoNight Moon
 background = 222436
+
+macos-option-as-alt = false
